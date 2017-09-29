@@ -1,0 +1,52 @@
+repositories = ["sensu-plugins/sensu-plugins.github.io", "sensu-plugins/GIR", "sensu-plugins/tools",
+                "sensu-plugins/scully", "sensu-plugins/hack_the_gibson", "sensu-plugins/tom_servo",
+                "sensu-plugins/documentation", "sensu-plugins/Kryten",
+                "sensu-plugins/community"]
+
+[[label]]
+color = "FF0000"
+name = "Bug"
+
+[[label]]
+color = "d4c5f9"
+name = "Enhancement"
+
+[[label]]
+color = "fbca04"
+name = "Feedback Requested"
+
+[[label]]
+color = "159818"
+name = "Help Wanted"
+
+[[label]]
+color = "fad8c7"
+name = "In Progress"
+
+[[label]]
+color = "5319e7"
+name = "Investigation Required"
+
+[[label]]
+color = "005200"
+name = "Needs Review"
+
+[[label]]
+color = "c2e0c6"
+name = "Rebase"
+
+[[label]]
+color = "c2e0c6"
+name = "Repo Created"
+
+[[label]]
+color = "d93f0b"
+name = "Upstream Change Required"
+
+[[label]]
+color = "f9d0c4"
+name = "Wrong Repo"
+
+[[milestones]]
+name = "v0.0.1"
+state = "open"
