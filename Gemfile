@@ -3,4 +3,8 @@ source "https://rubygems.org"
 
 gem "octokit"
 gem "netrc"
-gem "toml", "~> 0.1"
+gem "toml"
+
+group :development do
+  gem "pry"
+end

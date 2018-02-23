@@ -7,7 +7,11 @@ require "toml"
 require "pp"
 
 def github
-  @github ||= Octokit::Client.new(:netrc => true)
+  if ENV["GITHUB_TOKEN"].nil?
+    @github ||= Octokit::Client.new(:netrc => true)
+  else
+    @github ||= Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+  end
 end
 
 Octokit.auto_paginate = true

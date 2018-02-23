@@ -1,8 +1,24 @@
-Repo Man
-============
+## Note: Not a submodule.
+
+I straight up took this from friends at Chef. It's wonderful for specific and simple mapping of updates that Terraform just won't do on its own. Links:
+
+* [Original repo](https://github.com/thommay/repo_man)
+* [Matt's fork](https://github.com/mbbroberg/repo_man)
+
+## How we use this at Sensu
+
+This tool is super powerful. Run with the [`sensu-plugins.toml`](sensu-plugins.toml) file for plugins/extensions and the [`sensu-nonplugins.toml`] for everything else by:
+
+1. Updating the `repositories` array in the toml file
+2. Run the command: `ruby bin/repo_man -c $FILE.toml` where it's one of the two
+3. Browse to the labels page to confirm it worked as expected! Ex. https://github.com/sensu-plugins/sensu-plugins-twilio/issues/labels
+
+
+
+# Repo Man
 
 A utility for ensuring that a GitHub repository has the correct set of
-labels and milestones. 
+labels and milestones.
 The owner can create a toml file to configure a list of labels and
 milestones, and a list of mappings to rename older labels correctly.
 
@@ -77,4 +93,3 @@ To apply a config file to a repository, run
 ```
 bundle exec bin/repo_man -c config.toml
 ```
-

@@ -3,50 +3,122 @@ repositories = ["sensu-plugins/sensu-plugins.github.io", "sensu-plugins/GIR", "s
                 "sensu-plugins/documentation", "sensu-plugins/Kryten",
                 "sensu-plugins/community"]
 
+####              ####
+####  All Types   ####
+####              ####
+
 [[label]]
-color = "FF0000"
-name = "Bug"
+color = "e11d21"
+name = "Type: Bug"
+mappings = ["bug", "Bug"]
 
 [[label]]
 color = "d4c5f9"
-name = "Enhancement"
+name = "Type: Enhancement"
+mappings = ["enhancement", "Enhancement"]
 
 [[label]]
-color = "fbca04"
-name = "Feedback Requested"
+color = "d4c5f9"
+name = "Type: Question"
+mappings = ["question", "Questions"]
 
 [[label]]
-color = "159818"
+color = "d4c5f9"
+name = "Type: Proposal"
+mappings = ["Proposal", "RFC"]
+
+[[label]]
+color = "d4c5f9"
+name = "Type: Documentation"
+mappings = ["Documentation", "Docs"]
+
+[[label]]
+color = "e11d21"
+name = "Type: Security"
+# mappings = []
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs Changelog"
+# mappings = [""]
+
+[[label]]
+color = "c2e0c6"
+name = "Status: In Progress"
+mappings = ["In Progress"]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs Review"
+mappings = ["Investigation Required", "Needs Review", "Review Needed", "Status: Needs Triage"]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Blocked"
+mappings = ["Blocked"]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs Rebase"
+mappings = ["Rebase"]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Awaiting Response"
+mappings = ["Awaiting Response"]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs SME Review"
+# mappings = [""]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs Documentation"
+# mappings = [""]
+
+[[label]]
+color = "000000"
+name = "Status: Abandoned"
+mappings = ["Abandoned"]
+
+[[label]]
+color = "000000"
+name = "Status: Stale"
+mappings = ["Stale"]
+
+
+[[label]]
+color = "000000"
+name = "Status: Thinking"
+mappings = ["Thinking"]
+
+[[label]]
+color = "000000"
+name = "Status: Wrong Repo"
+mappings = ["Wrong Repo"]
+
+[[label]]
+color = "000000"
+name = "Status: Won't Fix"
+mappings = ["wontfix", "Won't Fix"]
+
+#######
+## Two special cases for getting people's involvement.
+######
+
+[[label]]
+color = "c2e0c6"
 name = "Help Wanted"
+mappings = ["help wanted", "Status: Help Wanted"]
 
-[[label]]
-color = "fad8c7"
-name = "In Progress"
-
-[[label]]
-color = "5319e7"
-name = "Investigation Required"
-
-[[label]]
-color = "005200"
-name = "Needs Review"
 
 [[label]]
 color = "c2e0c6"
-name = "Rebase"
+name = "Status: Claimed"
 
-[[label]]
-color = "c2e0c6"
-name = "Repo Created"
 
-[[label]]
-color = "d93f0b"
-name = "Upstream Change Required"
-
-[[label]]
-color = "f9d0c4"
-name = "Wrong Repo"
-
-[[milestones]]
-name = "v0.0.1"
-state = "open"
+#
+# [[milestones]]
+# name = "v0.0.1"
+# state = "open"

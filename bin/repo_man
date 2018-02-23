@@ -7,7 +7,11 @@ require "toml"
 require "pp"
 
 def github
-  @github ||= Octokit::Client.new(:netrc => true)
+  if ENV["GITHUB_TOKEN"].nil?
+    @github ||= Octokit::Client.new(:netrc => true)
+  else
+    @github ||= Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+  end
 end
 
 # Some ground rules:
@@ -28,11 +32,9 @@ def ensure_label(repository, label)
   if current.nil?
     github.add_label(repository, label["name"], label["color"])
     puts "Successfully added label"
-  else
-    unless current[:color] == label["color"]
-      github.update_label(repository, label["name"], color: label["color"])
-      puts "Updated color for #{label['name']}"
-    end
+  elsif current[:color] != label["color"]
+    github.update_label(repository, label["name"], color: label["color"])
+    puts "Updated color for #{label['name']}"
   end
 
   mappings.each do |previous|
@@ -75,11 +77,9 @@ def ensure_milestone(repository, milestone)
   if current.nil?
     new = github.create_milestone(repository, milestone["name"], description: milestone["description"])
     puts "Successfully added milestone"
-  else
-    unless current[:title] == milestone["name"] && current[:description] == milestone["description"]
-      github.update_milestone(repository, current[:number], title: milestone["name"], description: milestone["description"])
-      puts "Updated milestone"
-    end
+  elsif current[:title] == milestone["name"] && current[:description] == milestone["description"]
+    github.update_milestone(repository, current[:number], title: milestone["name"], description: milestone["description"])
+    puts "Updated milestone"
   end
 
   mappings.each do |previous|
@@ -124,7 +124,9 @@ end
 
 Octokit.auto_paginate = true
 
+ARGV << '-h' if ARGV.empty?
 options = {}
+
 OptionParser.new do |opts|
   opts.banner = "Usage: repo_man [options]"
 
@@ -142,8 +144,15 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-config = TOML.load_file(options["config"])
+
+cfg = options["config"]
+raise(Exception, "No configuration provided") if cfg.nil? ## Protects from nil value failure that's a problem now ¯\_(ツ)_/¯
+config = TOML.load_file(cfg)
 config['repositories'].each do |repo|
+  unless github.repository?(repo)
+    puts "The repository " + repo + " doesn't appear to exist."
+    next
+  end
   unless config['label'].nil?
     config['label'].each do |label|
       puts "Working on label '#{label['name']}' for '#{repo}'"

@@ -1,4 +1,4 @@
-repositories = ["sensu-plugins/sensu-plugins-twilio"]
+repositories = ["sensu-plugins/sensu-plugins-postgres"]
 
 ####              ####
 ####  All Types   ####
@@ -17,7 +17,7 @@ mappings = ["enhancement", "Enhancement"]
 [[label]]
 color = "d4c5f9"
 name = "Type: Question"
-mappings = ["question", "questions"]
+mappings = ["question", "Questions"]
 
 [[label]]
 color = "d4c5f9"
@@ -29,6 +29,10 @@ color = "d4c5f9"
 name = "Type: Documentation"
 mappings = ["Documentation", "Docs"]
 
+[[label]]
+color = "e11d21"
+name = "Type: Security"
+# mappings = []
 
 ####              ####
 #### All Statuses ####
@@ -62,7 +66,7 @@ mappings = ["In Progress"]
 [[label]]
 color = "fef2c0"
 name = "Status: Needs Review"
-mappings = ["Investigation Required", "Needs Review", "Review Needed"]
+mappings = ["Investigation Required", "Needs Review", "Review Needed", "Status: Needs Triage"]
 
 [[label]]
 color = "fef2c0"
@@ -87,6 +91,11 @@ mappings = ["Awaiting Response"]
 [[label]]
 color = "fef2c0"
 name = "Status: Needs SME Review"
+# mappings = [""]
+
+[[label]]
+color = "fef2c0"
+name = "Status: Needs Documentation"
 # mappings = [""]
 
 [[label]]
@@ -121,8 +130,8 @@ mappings = ["wontfix", "Won't Fix"]
 
 [[label]]
 color = "c2e0c6"
-name = "Status: Help Wanted"
-mappings = ["help wanted", "Help Wanted"]
+name = "Help Wanted"
+mappings = ["help wanted", "Status: Help Wanted"]
 
 [[label]]
 color = "c2e0c6"
@@ -185,6 +194,11 @@ mappings = ["Windows"]
 ####                   ####
 ####  All Priorities   ####
 ####                   ####
+
+[[label]]
+color = "ededed"
+name = "Priority: Later"
+# mappings = [""]
 
 [[label]]
 color = "ededed"

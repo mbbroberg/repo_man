@@ -1,4 +1,4 @@
-repositories = [ "example/fox", "example/wolf" ]
+repositories = [ "mbbroberg/test", "mbbroberg/playing" ]
 
 [[label]]
 name = "bug"
